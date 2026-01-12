@@ -1,0 +1,52 @@
+
+
+<!-- 🔍 Search Publisher by ID -->
+<h3>Search Publisher by ID</h3>
+<input type="number" [(ngModel)]="searchId" placeholder="Enter publisher ID">
+<button (click)="searchPublisher()">Search</button>
+
+<div *ngIf="foundPublisher">
+  <p><b>Result:</b> {{ foundPublisher.publisherId }} - {{ foundPublisher.name }}</p>
+</div>
+
+<div *ngIf="searchError">
+  <p class="error">{{ searchError }}</p>
+</div>
+
+<hr>
+
+<!-- Add new publisher -->
+<h3>Add Publisher</h3>
+<input [(ngModel)]="newPublisher.name" placeholder="Name">
+<button (click)="addPublisher()">Add</button>
+
+<hr>
+
+<!-- Edit publisher -->
+<div *ngIf="selectedPublisher">
+  <h3>Edit Publisher</h3>
+  <input [(ngModel)]="selectedPublisher.name" placeholder="Name">
+  <button (click)="updatePublisher()">Update</button>
+</div>
+<h2>Publishers</h2>
+
+<!-- Publishers Table -->
+<table class="publisher-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th class="actions-col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let publisher of publishers">
+      <td>{{ publisher.publisherId }}</td>
+      <td>{{ publisher.name }}</td>
+      <td class="actions">
+        <button (click)="editPublisher(publisher)">Edit</button>
+        <button class="delete" (click)="deletePublisher(publisher.publisherId)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

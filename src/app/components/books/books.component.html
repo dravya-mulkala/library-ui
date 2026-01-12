@@ -1,0 +1,13 @@
+<h2>Books</h2>
+
+@if (loading) {
+  <div>Loading…</div>
+} @else if (books.length === 0) {
+  <div>No books found.</div>
+} @else {
+  <ul>
+    @for (b of books; track b.bookId) {
+      <li>{{ b.bookId }} - {{ b.title }} - {{ b.publisherId }} - {{ b.publisher }}</li>
+    }
+  </ul>
+}
