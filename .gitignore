@@ -23,12 +23,17 @@ pnpm-debug.log*
 # =========================
 # OS / Editor files
 # =========================
-.vscode/
-.idea/
 *.swp
 *.swo
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
+.cursor/
+.gemini/
+.windsurf/
+.claude/
+.junie/
 
 # =========================
 # Git / tooling
